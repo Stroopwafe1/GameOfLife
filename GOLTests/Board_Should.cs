@@ -15,17 +15,14 @@ namespace GOLTests {
 			Assert.AreEqual(FEN, actual);
 		}
 		
-		[Test]
-		public void BoardConstructor_FromFEN_ShouldReturnSameFEN_Filled() {
-			string FEN = "4A3/1AA3A1/8/8/8/8/8/8/";
+		[TestCase("4A3/1AA3A1/8/8/8/8/8/8/")]
+		[TestCase("7A/7A/7A/8/8/8/8/8/")]
+		public void BoardConstructor_FromFEN_ShouldReturnSameFEN_Filled(string expected) {
+			string FEN = expected;
 			Board board = new Board(FEN);
 			string actual = board.ToString();
 
-			string FEN2 = "7A/7A/7A/8/8/8/8/8/";
-			Board board2 = new Board(FEN2);
-
 			Assert.AreEqual(FEN, actual);
-			Assert.AreEqual(FEN2, board2.ToString());
 		}
 
 		[Test]
